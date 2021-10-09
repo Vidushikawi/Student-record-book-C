@@ -87,8 +87,32 @@ int main()
 	}
 }
                                                                           //***ADD RECORDS***//
-
-
+void add()
+{
+		int i;
+		struct STUDENT s;
+		int size;
+		FILE *fp;
+		size=sizeof(s);
+		fp=fopen("MINI_PROJECT_IN_C.DAT","ab");
+ 		printf("\nenter roll no for record\n");
+		scanf("%d",&s.roll_no);
+		printf("enter name\n");
+		scanf("%s",s.name);
+		printf("enter age\n");
+		scanf("%d",&s.age);
+		printf("enter maths marks\n");
+		scanf("%d",&s.maths);
+		printf("enter physics marks\n");
+		scanf("%d",&s.physics);
+		printf("enter chemistry marks\n");
+		scanf("%d",&s.chemistry);
+		s.total=s.maths+s.physics+s.chemistry;
+		s.avg=s.total/3;
+		fwrite(&s,size,1,fp);
+		fclose(fp);
+		printf("\nrecord successfully added");
+}
 
 void password()
 {
